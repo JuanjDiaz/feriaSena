@@ -17,7 +17,7 @@
   <body>
     <div class="container">
       <div class="logo">
-        <img src="sena.jpg" alt="Logo del sena" />
+        <img src="../assets/images/sena.jpg" alt="Logo del sena" />
       </div>
       <h1>Iniciar Sesión</h1>
       <form>
@@ -31,7 +31,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Entrar</button>
       </form>
-      <!-- Botón para abrir el modal de registro -->
+
       <button id="registerBtn" class="btn btn-secondary">Crear Cuenta</button>
     </div>
 
@@ -59,55 +59,23 @@
     </div>
 
     <script>
-      <!-- Modal de Bootstrap -->
-      <div
-        class="modal fade"
-        id="registerModal"
-        tabindex="-1"
-        aria-labelledby="registerModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="registerModalLabel">
-                Crear Cuenta
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="input-group">
-                  <label for="newUsername">Usuario</label>
-                  <input
-                    type="text"
-                    id="newUsername"
-                    name="newUsername"
-                    required
-                  />
-                </div>
-                <div class="input-group">
-                  <label for="newPassword">Contraseña</label>
-                  <input
-                    type="password"
-                    id="newPassword"
-                    name="newPassword"
-                    required
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary">
-                  Registrar
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>;
+      const registerBtn = document.getElementById("registerBtn");
+      const registerModal = document.getElementById("registerModal");
+      const closeModal = document.getElementById("closeModal");
+
+      registerBtn.onclick = function () {
+        registerModal.style.display = "block";
+      };
+
+      closeModal.onclick = function () {
+        registerModal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target === registerModal) {
+          registerModal.style.display = "none";
+        }
+      };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
