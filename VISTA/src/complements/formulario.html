@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link src="feria.js" />
-    <link rel="icon" href="logosena.ico" />
-    <link rel="stylesheet" href="Style.css" />
+    <link rel="icon" href="../assets/images/logosena.ico" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/complements/StyleFormulario.css"
+    />
     <title>Formulario</title>
   </head>
   <body>
@@ -87,17 +90,13 @@
       </select>
       <br />
       <label for="sede">Sede:</label>
-      <select id="sede" name="sede" required>
+      <select id="sede" name="sede" class="selecciones" required>
         <option value="" disabled selected>Seleccione</option>
         <option value="Pescadero">Pescadero</option>
         <option value="Comuneros">Comuneros</option>
         <option value="Calzado">Calzado</option>
       </select>
-      <br />
-      <br />
-      <center>
-        <input type="submit" value="Enviar" />
-      </center>
+      <button class="boton">Enviar</button>
       <br />
       <h3>¡Gracias Por Contestar!</h3>
     </form>
