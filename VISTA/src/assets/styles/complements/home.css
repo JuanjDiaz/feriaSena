@@ -1,0 +1,97 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #00f365;
+    background-image: url('../../images/FERIA.png');
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #004d23;
+    color: white;
+}
+
+.logo img {
+    height: 50px;
+}
+
+header h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav img {
+    height: 25px;
+    cursor: pointer;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile span {
+    font-size: 14px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+    text-align: center;
+}
+
+.welcome {
+    background-color: rgba(47, 119, 61, 0.8);
+    padding: 90% ;
+    border-radius: 0px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.welcome h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.welcome button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #32cd32;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.welcome button:hover {
+    background-color: #28a428;
+}
