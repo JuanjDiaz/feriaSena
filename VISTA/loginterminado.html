@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feria SENA</title>
+    <link rel="icon" href="sena-logo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2a7c2a;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(34, 126, 34, 0.4);
+            background: url('fondo.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #002000, #005f00, #008b00);
+            z-index: 1;
+            position: relative;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: auto;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+            color: rgb(30, 173, 17);
+        }
+
+        .header .access {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .access .access-button {
+            background-color: #1c961c;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header .access .access-button:hover {
+            background-color: #4e9f4e;
+        }
+
+        .header .access .profile-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2a7c2a;
+            font-size: 16px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: calc(100vh - 70px);
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .text-section {
+            max-width: 50%;
+            margin-right: 40px;
+            color: white;
+        }
+
+        .text-section h2 {
+            font-size: 36px;
+            margin: 0 0 10px;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .login-section {
+            background-color: rgba(244, 253, 243, 0.664);
+            color: black;
+            padding: 60px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .login-section h3 {
+            font-size: 20px;
+            margin: 0 0 10px;
+        }
+
+        .login-section a {
+            font-size: 12px;
+            color: #2a7c2a;
+            text-decoration: none;
+        }
+
+        .login-section input[type="text"],
+        .login-section input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-section button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2a7c2a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-section button:hover {
+            background-color: #256c25;
+        }
+    </style>
+</head>
+<body>
+    <!-- Imagen de fondo -->
+    <div class="background"></div>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="sena-logo.png" alt="Logo SENA">
+            <h1>FERIA XXXXX</h1>
+        </div>
+        <div class="access">
+            <button class="access-button" onclick="showAccessAlert()">ACCEDER</button>
+            <div class="profile-icon">👤</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="text-section">
+            <h2>Texto</h2>
+            <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera.</p>
+        </div>
+        <div class="login-section">
+            <h3>Iniciar sesión</h3>
+            <a href="#">Registrarse</a>
+            <form id="login-form" onsubmit="loginSubmit(event)">
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">INICIAR SESIÓN</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function showAccessAlert() {
+            alert("¡Acceso realizado!");
+        }
+
+        function loginSubmit(event) {
+            event.preventDefault();
+            alert("Formulario enviado. ¡Bienvenido!");
+        }
+    </script>
+</body>
+</html>
