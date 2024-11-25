@@ -1,0 +1,1 @@
+<!-- en este archivo se realizaran las consultas SQL-->
