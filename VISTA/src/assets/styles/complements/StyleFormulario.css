@@ -68,7 +68,7 @@ h1, h3{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(34, 126, 34, 0.4) url('fondo.jpg') no-repeat center center;
+    background: rgba(34, 126, 34, 0.4) url('/VISTA/src/assets/images/fondo.jpg') no-repeat center center;
     background-size: cover;
     filter: blur(8px);
     z-index: -1;
