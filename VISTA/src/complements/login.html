@@ -1,86 +1,47 @@
-<!-- QUIEN MONDA HIZO ESTO Y PARA QUE -->
-
-
-
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - jazkel</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../assets/styles/complements/login.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="logo">
-        <img src="../assets/images/sena.jpg" alt="Logo del sena" />
-      </div>
-      <h1>Iniciar Sesión</h1>
-      <form>
-        <div class="input-group">
-          <label for="username">Usuario</label>
-          <input type="text" id="username" name="username" required />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feria SENA</title>
+    <link rel="icon" href="../VISTA/src/assets/images/sena-logo.png">
+    <link rel="stylesheet" href="/VISTA/src/assets/styles/complements/login.css">
+</head>
+<body>
+    <!-- Imagen de fondo -->
+    <div class="background"></div>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="/VISTA/src/assets/images/sena-logo.png" alt="Logo SENA">
+            <h1>FERIA XXXXX</h1>
         </div>
-        <div class="input-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" required />
+        <div class="access">
+            <button class="access-button" onclick="showAccessAlert()">ACCEDER</button>
+            <div class="profile-icon">👤</div>
         </div>
-        <button type="submit" class="btn btn-primary">Entrar</button>
-      </form>
+    </header>
 
-      <button id="registerBtn" class="btn btn-secondary">Crear Cuenta</button>
-    </div>
+    <main class="main-content">
+        <div class="text-section">
+            <h2>Texto</h2>
+            <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera.</p>
+        </div>
+        <div class="login-section">
+            <h3>Iniciar sesión</h3>
+            <a href="#" id="signup-link">Registrarse</a>
+            <form id="login-form" onsubmit="loginSubmit(event)">
+                <div id="user-div" class="user-section">
+                <input id="user-input" type="text" placeholder="Usuario" required>
+                </div>
+                <div id="password-div" class="password-section">
+                <input id="password-input" type="password" placeholder="Contraseña" required>
+                </div>
+                <button id="login-button" type="submit">INICIAR SESIÓN</button>
+            </form>
+        </div>
+    </main>
 
-    <div id="registerModal" class="modal" style="display: none">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Crear Cuenta</h2>
-        <form>
-          <div class="input-group">
-            <label for="newUsername">Usuario</label>
-            <input type="text" id="newUsername" name="newUsername" required />
-          </div>
-          <div class="input-group">
-            <label for="newPassword">Contraseña</label>
-            <input
-              type="password"
-              id="newPassword"
-              name="newPassword"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Registrar</button>
-        </form>
-      </div>
-    </div>
-
-    <script>
-      const registerBtn = document.getElementById("registerBtn");
-      const registerModal = document.getElementById("registerModal");
-      const closeModal = document.getElementById("closeModal");
-
-      registerBtn.onclick = function () {
-        registerModal.style.display = "block";
-      };
-
-      closeModal.onclick = function () {
-        registerModal.style.display = "none";
-      };
-
-      window.onclick = function (event) {
-        if (event.target === registerModal) {
-          registerModal.style.display = "none";
-        }
-      };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <script src="/VISTA/src/js/login.js"></script>
+</body>
 </html>
