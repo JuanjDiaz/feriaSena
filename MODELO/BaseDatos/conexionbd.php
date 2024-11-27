@@ -1,16 +1,30 @@
 <?php
 
-$server="localhost";
-$user="root";
-$pass="";
-$db="feria_sena";
+class DataBase{
 
-$conexion=new mysqli($server,$user,$pass,$db);
+    public string $server;
+    public string $user;
+    public string $pass;
+    public string $db;
+    public $conexion;
 
-if ($conexion->connect_errno){
-    die("Conexión fallida" . $conexion->connect_errno);
-}else{
-    echo "Conectado correctamente";
+    public function __construct()
+    {
+        $this->server="localhost";
+        $this->user="root";
+        $this->pass="";
+        $this->db="feria_sena";
+    }
+    
+    public function conectarBaseDatos(){
+
+        $this->conexion=new mysqli($this->server,$this->user,$this->pass,$this->db);
+
+        if ($this->conexion->connect_errno){
+            die("Conexión fallida" . $this->conexion->connect_errno);
+        }else{
+            echo "Conectado correctamente";
+        }
+    }
 }
-
 ?>

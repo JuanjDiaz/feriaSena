@@ -1,1 +1,14 @@
-<!-- en este archivo se realizaran las consultas SQL-->
+<?php
+
+require_once "conexionbd.php";
+
+class User{
+
+    public function __construct()
+    {
+        
+    }
+
+}
+
+?>
