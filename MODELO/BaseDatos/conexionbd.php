@@ -2,11 +2,11 @@
 
 class DataBase{
 
-    public string $server;
-    public string $user;
-    public string $pass;
-    public string $db;
-    public $conexion;
+    private string $server;
+    private string $user;
+    private string $pass;
+    private string $db;
+    private ?PDO $conexion;
 
     public function __construct()
     {
@@ -18,13 +18,22 @@ class DataBase{
     
     public function conectarBaseDatos(){
 
-        $this->conexion=new mysqli($this->server,$this->user,$this->pass,$this->db);
+    try{
 
-        if ($this->conexion->connect_errno){
-            die("Conexión fallida" . $this->conexion->connect_errno);
-        }else{
-            echo "Conectado correctamente";
+        
+        $this->conexion=new PDO("mysql:host={$this->server};dbname={$this->db};charset=utf8",
+        $this->user,$this->pass);
+        
+        $this->conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            echo "Conexión exitosa a la base de datos";
+        }catch (PDOException $e) {
+            die ("Error al conectar a la base de datos: ".$e->getMessage());
         }
+    }
+
+    public function getConexion(): ?PDO{
+        $this->conectarBaseDatos();
+        return $this->conexion;
     }
 }
 ?>
