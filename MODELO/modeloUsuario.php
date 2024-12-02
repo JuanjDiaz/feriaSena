@@ -9,7 +9,7 @@ class User{
     public string $usuario;
     public string $contraseña;
 
-    public function __construct()
+    public function __construct($usuario,$contraseña)
     {
         $this->usuario=null;
         $this->contraseña=null;
@@ -30,10 +30,9 @@ class User{
     }
 
 
-    public function validarUsuario(PDO $conexion){
+    public function consultarUsuario(PDO $conexion){
         try{
-            $consulta = $conexion->prepare("SELECT * FROM usuario WHERE usuario = :usuario AND contraseña= :contraseña");
-            // se debe crear campo de usuario y contraseña en la tabla de usuario en la base de datos
+            $consulta = $conexion->prepare("SELECT * FROM usuario WHERE usuario = :usuario AND contrasena= :contraseña");
             $consulta->bindParam(":usuario", $this->usuario,PDO::PARAM_STR);
             $consulta->bindParam(":contraseña", $this->contraseña, PDO::PARAM_STR);
 
@@ -47,5 +46,4 @@ class User{
 
 
 }
-
 ?>

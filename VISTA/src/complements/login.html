@@ -30,12 +30,12 @@
         <div class="login-section">
             <h3>Iniciar sesión</h3>
             <a href="#" id="signup-link">Registrarse</a>
-            <form id="login-form" onsubmit="loginSubmit(event)">
+            <form id="login-form" method="post" action="/CONTROLADOR/controladorUsuario.php" onsubmit="loginSubmit(event)">
                 <div id="user-div" class="user-section">
-                <input id="user-input" type="text" placeholder="Usuario" required>
+                <input name="usuario" id="user-input" type="text" placeholder="Usuario" required>
                 </div>
                 <div id="password-div" class="password-section">
-                <input id="password-input" type="password" placeholder="Contraseña" required>
+                <input name="contraseña" id="password-input" type="password" placeholder="Contraseña" required>
                 </div>
                 <button id="login-button" type="submit">INICIAR SESIÓN</button>
             </form>
