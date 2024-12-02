@@ -66,11 +66,20 @@ td {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px; /* Agrega bordes redondeados para el efecto visual */
 }
 
 .sidebar ul li a:hover {
+    background-color: #0a5d0a; /* Color más claro en hover */
     text-decoration: underline;
 }
+
+.sidebar ul li a.active {
+    background-color: #1a7d1a; /* Color más claro para el botón activo */
+}
+
 
 .content {
     padding: 20px;

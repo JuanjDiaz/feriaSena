@@ -31,12 +31,12 @@
     </header>
 
     <div class="d-flex">
-      <aside class="sidebar">
-        <ul>
-          <li><a href="#">Resumen de equipos</a></li>
-          <li><a href="#">Equipos asignados</a></li>
-        </ul>
-      </aside>
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" class="active">Resumen de equipos</a></li>
+                <li><a href="#">Equipos asignados</a></li>
+            </ul>
+        </aside>        
 
       <main class="content">
         <h2>Asignación de Técnicos</h2>
@@ -81,7 +81,6 @@
                   <option selected>En reparación</option>
                   <option>Entregado</option>
                 </select>
-                <button class="btn btn-primary mt-2">Guardar</button>
               </td>
               <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsModal">Ver detalles</button></td>
             </tr>
@@ -95,7 +94,6 @@
                   <option>En reparación</option>
                   <option selected>Entregado</option>
                 </select>
-                <button class="btn btn-primary mt-2">Guardar</button>
               </td>
               <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsModal">Ver detalles</button></td>
             </tr>
@@ -124,11 +122,11 @@
             ></button>
           </div>
           <div class="modal-body">
-            <p>Aquí puedes realizar las acciones necesarias para este equipo.</p>
+            <p>Titulo</p>
             <ul>
-              <li>Ver historial de reparaciones.</li>
-              <li>Asignar tareas adicionales.</li>
-              <li>Confirmar entrega.</li>
+              <li>Detalles del equipo.</li>
+              <li>reparación</li>
+              <li>otra información</li>
             </ul>
           </div>
           <div class="modal-footer">
