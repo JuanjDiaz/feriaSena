@@ -50,10 +50,6 @@ class InicioSesion {
         this.contraseña = this.inputContraseña.value.trim();
         this.validarUsuario(this.usuario);
         this.validarContraseña(this.contraseña);
-  
-        if (this.usuario !== "" && this.contraseña !== "" && !this.hayErrores()) {
-            this.validarCredenciales();
-        }
     }
   
     hayErrores() {
@@ -80,24 +76,6 @@ class InicioSesion {
         }
     }
   
-    validarCredenciales() {
-        const usuarioRegistrado = JSON.parse(localStorage.getItem("usuarioRegistrado"));
-  
-        if (usuarioRegistrado && usuarioRegistrado.usuario === this.usuario && usuarioRegistrado.contraseña === this.contraseña) {
-            this.iniciarSesionExitoso();
-        } else {
-            this.iniciarSesionFallido();
-        }
-    }
-  
-    iniciarSesionExitoso() {
-        alert("Inicio de sesión exitoso. ¡Bienvenido!");
-        window.location.href = "/xxxxx/xxxxx/xxxxx";  // aqui va la pagina a la que se toca que redirigir
-    }
-  
-    iniciarSesionFallido() {
-        alert("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
-    }
   
     eliminarError(idDiv) {
         const contenedor = document.getElementById(idDiv);
@@ -120,7 +98,6 @@ class InicioSesion {
     */
   }
   
-  // Inicialización
   const inicioSesion = new InicioSesion();
   inicioSesion.agregarEventos();
   
