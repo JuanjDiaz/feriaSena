@@ -1,4 +1,8 @@
 <?php
+
+echo "<script>console.log('PHP está funcionando');</script>";
+exit();
+
 require_once "../MODELO/modeloUsuario.php";
 require "../MODELO/conexionbd.php";
 
