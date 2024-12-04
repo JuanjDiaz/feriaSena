@@ -8,32 +8,36 @@ class Redirigir {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+class GestorRedirecciones {
+    constructor(botonesYUrls) {
+        this.botonesYUrls = botonesYUrls;
+        this.iniciar();
+    }
 
-    const redirigirA1 = new Redirigir('/VISTA/src/complements/');
-    const redirigirA2 = new Redirigir('/VISTA/src/complements/informes.html');
-    const redirigirA3 = new Redirigir('/VISTA/src/complements/');
-    const redirigirA4 = new Redirigir('/VISTA/src/complements/formulario.html');
+    iniciar() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.asignarEventos();
+        });
+    }
 
-    const boton1 = document.getElementById('resumenEquipos');
-    const boton2 = document.getElementById('informes');
-    const boton3 = document.getElementById('AsignacionTecnico');
-    const boton4 = document.getElementById('registrarEqipo');
+    asignarEventos() {
+        for (const [botonId, url] of Object.entries(this.botonesYUrls)) {
+            const boton = document.getElementById(botonId);
+            if (boton) {
+                boton.addEventListener('click', () => {
+                    const redirigir = new Redirigir(url); 
+                    redirigir.hacerRedireccion(); 
+                });
+            }
+        }
+    }
+}
 
-    boton1.addEventListener('click', function() {
-        redirigirA1.hacerRedireccion();
-    });
+const botonesYUrls = {
+    'resumenEquipos': '/VISTA/src/complements/',
+    'informes': '/VISTA/src/complements/informes.html',
+    'AsignacionTecnico': '/VISTA/src/complements/',
+    'registrarEqipo': '/VISTA/src/complements/formulario.html'
+};
 
-    boton2.addEventListener('click', function() {
-        redirigirA2.hacerRedireccion();
-    });
-
-    boton3.addEventListener('click', function() {
-        redirigirA3.hacerRedireccion();
-    });
-
-    boton4.addEventListener('click', function() {
-        redirigirA4.hacerRedireccion();
-    });
-
-});
+new GestorRedirecciones(botonesYUrls);
