@@ -1,23 +1,7 @@
 class Redirigir {
-    constructor(url) {
-        this.url = url;
-    }
-
-    hacerRedireccion() {
-        window.location.href = this.url;
-    }
-}
-
-class GestorRedirecciones {
-    constructor(botonesYUrls) {
-        this.botonesYUrls = botonesYUrls;
-        this.iniciar();
-    }
-
-    iniciar() {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.asignarEventos();
-        });
+    constructor(botonesUrls) {
+        this.botonesYUrls = botonesUrls;
+        this.asignarEventos();
     }
 
     asignarEventos() {
@@ -25,19 +9,22 @@ class GestorRedirecciones {
             const boton = document.getElementById(botonId);
             if (boton) {
                 boton.addEventListener('click', () => {
-                    const redirigir = new Redirigir(url); 
-                    redirigir.hacerRedireccion(); 
+                    this.hacerRedireccion(url); 
                 });
             }
         }
     }
+
+    hacerRedireccion(url) {
+        window.location.href = url; 
+    }
 }
 
-const botonesYUrls = {
+const botonesUrls = {
     'resumenEquipos': '/VISTA/src/complements/',
     'informes': '/VISTA/src/complements/informes.html',
     'AsignacionTecnico': '/VISTA/src/complements/',
     'registrarEqipo': '/VISTA/src/complements/formulario.html'
 };
 
-new GestorRedirecciones(botonesYUrls);
+new Redirigir(botonesUrls);

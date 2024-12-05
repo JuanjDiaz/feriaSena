@@ -1,6 +1,6 @@
 class redireccion {
     constructor(botonesYUrls) {
-        this.botonesYUrls = botonesYUrls;
+        this.botonesUrls = botonesUrls;
         this.iniciar();
     }
 
@@ -11,7 +11,7 @@ class redireccion {
     }
 
     asignarEventos() {
-        for (const [botonId, url] of Object.entries(this.botonesYUrls)) {
+        for (const [botonId, url] of Object.entries(this.botonesUrls)) {
             const boton = document.getElementById(botonId);
             if (boton) {
                 boton.addEventListener('click', () => this.hacerRedireccion(url));
@@ -24,9 +24,9 @@ class redireccion {
     }
 }
 
-const botonesYUrls = {
+const botonesUrls = {
     'resumenEquipos': '/VISTA/src/complements/',
     'equiposAsignados': '/VISTA/src/complements/'
 };
 
-new redireccion(botonesYUrls);
+new redireccion(botonesUrls);
