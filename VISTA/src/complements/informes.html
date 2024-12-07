@@ -37,7 +37,7 @@
 
     <div class="d-flex">
       <!-- Sidebar ddddd-->
-       <!--prueba-->
+      <!--prueba-->
       <aside class="sidebar">
         <ul>
           <div class="li">
@@ -79,6 +79,15 @@
               />
             </div>
             <div class="col-md-6">
+              <label for="id" class="form-label">ID</label>
+              <input
+                type="text"
+                id="id"
+                class="form-control"
+                placeholder="Ingrese el ID del equipo"
+              />
+            </div>
+            <div class="col-md-6">
               <label for="fechaInicio" class="form-label"
                 >Fecha de inicio</label
               >
@@ -96,6 +105,7 @@
         <table class="table mt-4">
           <thead class="table-success">
             <tr>
+              <th scope="col">ID</th>
               <th scope="col">Equipo</th>
               <th scope="col">Propietario</th>
               <th scope="col">Técnico asignado</th>
@@ -105,21 +115,12 @@
               <th scope="col">Procedimientos realizados</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Portátil</td>
-              <td>Luis Fossi</td>
-              <td>Javier Gómez</td>
-              <td>2024-11-22</td>
-              <td>2024-12-02</td>
-              <td>Entregado</td>
-              <td>Mantenimiento</td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
 
-        <button class="btn btn-success">Descargar</button>
+        <button id="descargarBtn" class="btn btn-success">Descargar</button>
       </main>
     </div>
+    <script src="../js/informes.js"></script>
   </body>
 </html>
