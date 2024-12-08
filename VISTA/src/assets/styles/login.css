@@ -19,7 +19,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(34, 126, 34, 0.4);
-    background: url('/VISTA/src/assets/images/fondo.jpg') no-repeat center center;
+    background: url('../images/fondo.jpg') no-repeat center center;
     background-size: cover;
     filter: blur(8px);
     z-index: -1;
