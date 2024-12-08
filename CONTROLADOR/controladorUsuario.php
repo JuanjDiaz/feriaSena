@@ -1,10 +1,8 @@
 <?php
 
 echo "<script>console.log('PHP está funcionando');</script>";
-exit();
 
 require_once "../MODELO/modeloUsuario.php";
-require "../MODELO/conexionbd.php";
 
 class Controlador{
     public function __construct()
@@ -14,20 +12,26 @@ class Controlador{
 
     public function validarUsuario(){
         if ($_SERVER["REQUEST_METHOD"]==="POST"){
-            $usuario=$_POST["usuario"]??"";
-            $contraseña=$_POST["contraseña"]??"";
+            $origen=$_POST["file-origen"]?? "";
 
-            $db=new DataBase();
-            $conexion=$db->getConexion();
-
-            $user=new User($usuario,$contraseña);
-            $user->consultarUsuario($conexion);
-
-            if ($user->consultarUsuario($conexion)) {
-                echo "Inicio de sesión exitoso. Bienvenido, {$usuario}.";
-            } else {
-                echo "Usuario o contraseña incorrectos.";
+            if ($origen==="login"){
+                $correo=$_POST["usuario"]??"";
+                $contraseña=$_POST["contraseña"]??"";
+                $user= new User($correo,$contraseña);
+                $validacion=$user->validarUsuario();
+                if ($validacion){
+                    header("Location:../VISTA/src/complements/home.html");
+                    exit();
+                }else{
+                    echo "<script>alert('Usuario o contraseña incorrectos');</script>";
+                    echo "<script>window.location.href = '../VISTA/complements/login.html';</script>";
+                }
             }
+            
+            #SE CREARÁ UN METODO PARA RECIBIR EL ORIGEN Y REUSAR CODIGO
+
+        }else{
+            echo "<script>console.log('Metodo post no recibido');</script>";
         }
     }
 }

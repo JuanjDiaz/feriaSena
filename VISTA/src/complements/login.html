@@ -30,7 +30,8 @@
         <div class="login-section">
             <h3>Iniciar sesión</h3>
             <a href="./formulario.html" id="signup-link">Registrarse</a>
-            <form id="login-form" method="post" action="../../../CONTROLADOR/prueba.php">
+            <form id="login-form" method="post" action="../../../CONTROLADOR/controladorUsuario.php">
+                <input type="hidden" name="file-origen" value="login">
                 <div id="user-div" class="user-section">
                 <input name="usuario" id="user-input" type="text" placeholder="Usuario" required>
                 </div>
