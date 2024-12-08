@@ -62,6 +62,7 @@
         <table class="table mt-4">
           <thead class="table-success">
             <tr>
+              <th scope="col">ID</th>
               <th scope="col">Equipo</th>
               <th scope="col">Propietario</th>
               <th scope="col">Técnico asignado</th>
@@ -72,37 +73,27 @@
           </thead>
           <tbody>
             <tr>
+              <td>01</td>
               <td>Portátil</td>
               <td>Luis Fossi</td>
               <td>Juan Pérez</td>
               <td>2024-11-22</td>
-              <td>
-                <select class="form-select">
-                  <option selected>En reparación</option>
-                  <option>Entregado</option>
-                </select>
-              </td>
+              <td>En reparación</td>
               <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsModal">Ver detalles</button></td>
             </tr>
             <tr>
+              <td>02</td>
               <td>Escritorio</td>
               <td>Maria García</td>
               <td>María López</td>
               <td>2024-11-20</td>
-              <td>
-                <select class="form-select">
-                  <option>En reparación</option>
-                  <option selected>Entregado</option>
-                </select>
-              </td>
+              <td>Entregado</td>
               <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsModal">Ver detalles</button></td>
             </tr>
           </tbody>
         </table>
       </main>
     </div>
-
-    <!-- Modal -->
     <div
       class="modal fade"
       id="detailsModal"
