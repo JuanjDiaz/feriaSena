@@ -128,7 +128,6 @@ if ($rolUsuario==="Administrador"){
 
     <header class="header">
         <div class="logo-container">
-            <img src="../assets/images/sena-logo.png" alt="Logo SENA">
             <h1>FERIA XXXXX</h1>
         </div>
         <nav class="custom-nav">
