@@ -4,52 +4,29 @@ class InicioSesion {
         this.contraseña = null;
         this.inputContraseña = null;
         this.inputUsuario = null;
-        this.botonIniciar = null;
-        this.linkRegistro = null;
     }
   
     agregarEventos() {
-      this.inputUsuario = document.getElementById("user-input");
-      this.inputContraseña = document.getElementById("password-input");
-      this.botonIniciar = document.getElementById("login-button");
-      this.linkRegistro = document.getElementById("signup-link");
-  
-      this.botonIniciar.addEventListener("click", (event) => {
-          event.preventDefault();  
-          this.tomarDatos();
-      });
-  
-      this.linkRegistro.addEventListener("click", (evento) => {
-          evento.preventDefault();
-          this.mostrarVistaRegistro();  
-      });
-  
-      this.inputUsuario.addEventListener("input", () => {
-          this.usuario = this.inputUsuario.value.trim();
-          this.validarUsuario(this.usuario);
-      });
-  
-      this.inputContraseña.addEventListener("input", () => {
-          this.contraseña = this.inputContraseña.value.trim();
-          this.validarContraseña(this.contraseña);
-      });
-  
-      this.inputUsuario.addEventListener("blur", () => {
-          this.usuario = this.inputUsuario.value.trim();
-          this.validarUsuario(this.usuario);
-      });
-  
-      this.inputContraseña.addEventListener("blur", () => {
-          this.contraseña = this.inputContraseña.value.trim();
-          this.validarContraseña(this.contraseña);
-      });
-    }
-  
-    tomarDatos() {
-        this.usuario = this.inputUsuario.value.trim();
-        this.contraseña = this.inputContraseña.value.trim();
-        this.validarUsuario(this.usuario);
-        this.validarContraseña(this.contraseña);
+        this.inputUsuario = document.getElementById("user-input");
+        this.inputContraseña = document.getElementById("password-input");
+
+        this.inputUsuario.addEventListener("input", () => {
+            this.usuario = this.inputUsuario.value.trim();
+            this.validarUsuario(this.usuario);
+        });
+
+        this.inputContraseña.addEventListener("input", () => {
+            this.contraseña = this.inputContraseña.value.trim();
+            this.validarContraseña(this.contraseña);
+        });
+
+        form.addEventListener("submit", (event) => {
+        if (hayErrores()) {
+            event.preventDefault(); // Esto bloquea el envío si hay errores
+            alert("Por favor, corrige los errores antes de continuar.");
+        }
+        });
+    
     }
   
     hayErrores() {
@@ -90,14 +67,8 @@ class InicioSesion {
         mensajeError.textContent = mensaje;
         contenedor.appendChild(mensajeError);
     }
-    /*
-    mostrarVistaRegistro() {
-        document.getElementById("divInicioSesion").classList.remove("active");
-        document.getElementById("divRegistroUsuario").classList.add("active");
-    }
-    */
   }
   
-  const inicioSesion = new InicioSesion();
-  inicioSesion.agregarEventos();
+const inicioSesion = new InicioSesion();
+inicioSesion.agregarEventos();
   
