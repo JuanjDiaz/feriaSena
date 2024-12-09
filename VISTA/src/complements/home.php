@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["Nombre"]) || !isset($_SESSION["Rol"])) {
+    // Si no hay datos de sesión, redirigir al login
+    header("Location: login.html");
+    exit();
+}
+
+$nombreUsuario = $_SESSION["Nombre"];
+$rolUsuario= $_SESSION["Rol"];
+$botones="";
+
+if ($rolUsuario==="Administrador"){
+    $botones= "
+        <a href='./informes.html' class='panel-button'>Informe</a>
+        <a href='./formulario.php' class='panel-button'>Formulario</a>
+        <a href='./asignacionesTecnico.html' class='panel-button'>Asignaciones</a>";
+}elseif ($rolUsuario==="Auxiliar"){
+    $botones = "
+        <a href='./formulario.php' class='panel-button'>Formulario</a>";
+}elseif ($rolUsuario==="Tecnico"){
+    $botones = "
+        <a href='./asignacionesTecnico.html' class='panel-button'>Asignaciones</a>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -108,7 +137,7 @@
             <span class="material-icons">settings</span>
             <!-- Botón Perfil con foto y nombre dinámico -->
             <div class="profile-container">
-                <span id="username">Cargando...</span> <!-- Nombre del usuario dinámico -->
+                <span id="username"><?php echo $nombreUsuario; ?></span> <!-- Nombre del usuario dinámico -->
             </div>
             <!-- Botón de Persona (perfil) -->
             <i class="material-icons">person</i>
@@ -117,21 +146,21 @@
 
     <main class="main-content">
         <div class="text-section">
-            <h2>¡Bienvenido <span id="welcomeName">Cargando...</span>, listo para optimizar y liberar manos a la obra!</h2>
+            <h2>¡Bienvenido <span id="welcomeName"><?php echo $nombreUsuario; ?></span>, listo para optimizar y liberar manos a la obra!</h2>
             <div class="button-container">
-                <a href="#" class="panel-button">Panel de Control</a>
+                    <?php echo $botones; ?>
             </div>
         </div>
     </main>
 
-    <script>
+    <!-- <script>
         // Simulación de un usuario logueado
         var nombreUsuario = "Henry"; // Aquí deberías obtener el nombre real del usuario desde tu sistema
 
         // Asignar el nombre dinámicamente
         document.getElementById("username").textContent = nombreUsuario;
         document.getElementById("welcomeName").textContent = nombreUsuario;
-    </script>
+    </script> -->
 
     <script src="/VISTA/src/js/login.js"></script>
 </body>

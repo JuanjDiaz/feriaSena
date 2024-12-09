@@ -1,18 +1,22 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Feria SENA</title>
-        <link rel="icon" href="/VISTA/src/assets/images/logosena.ico">
-        <link rel="stylesheet" href="../assets/styles/formulario.css">
+        <link rel="icon" href="../assets/images/logosena.ico">
+        <link rel="stylesheet" href="../assets/styles/StyleFormulario.css">
     </head>
     <body>
         <div class="background"></div>
 
         <header class="header">
             <div class="logo-container">
-                <img src="/VISTA/src/assets/images/sena-logo.png" alt="Logo SENA">
+                <img src="../assets/images/logosena.ico" alt="Logo SENA">
                 <h1>FERIA XXXXX</h1>
             </div>
             <div class="access">
@@ -20,7 +24,8 @@
             </div>
         </header>
 
-        <form action="/enviar-datos" method="post" id="miFormulario">
+        <form action="../../../CONTROLADOR/controladorUsuario.php" method="post" id="miFormulario">
+            <input type="hidden" name="file-origen" value="formulario">
             <h1 class="titulo">Formulario</h1>
             <div class="form-container">
                 <!-- Parte izquierda -->
@@ -48,7 +53,7 @@
                         <option value="All in one">All In One</option>
                     </select>
 
-                    <label for="procedimiento">Procedimiento Realizado:</label>
+                    <label for="procedimiento">Procedimiento a realizar:</label>
                     <select id="procedimiento" name="procedimiento" required>
                         <option value="" disabled selected>Seleccione</option>
                         <option value="Limpieza de equipos de computo">Limpieza de equipos de computo</option>
@@ -57,16 +62,8 @@
                         <option value="Diagnostico y/o reparación de Hardware">Diagnostico y/o reparación de Hardware</option>
                     </select>
 
-                    <label for="nombreTecnico">Nombre del Tecnico Asignado:</label>
+                    <label for="nombreTecnico">Nombre del Tecnico a Asignar:</label>
                     <input type="text" id="nombreTecnico" name="nombreTecnico" required>
-
-                    <label for="estado">Estado del Tecnico:</label>
-                    <select id="estado" name="estado" required>
-                        <option value="" disabled selected>Seleccione</option>
-                        <option value="Disponible">Disponible</option>
-                        <option value="Ocupado">Ocupado</option>
-                        <option value="Ausente">Ausente</option>
-                    </select>
 
                     <label for="sede">Sede:</label>
                     <select id="sede" name="sede" class="selecciones" required>
@@ -80,6 +77,7 @@
             <button class="boton">Enviar</button>
             <h3>¡Gracias Por Contestar!</h3>
         </form>
-        <script src="/VISTA/src/js/formulario.js"></script>
+
+        <script src="../js/formulario.js"></script>
     </body>
 </html>
