@@ -26,7 +26,7 @@ class redireccion {
 
 const botonesUrls = {
     'resumenEquipos': '/VISTA/src/complements/',
-    'equiposAsignados': '/VISTA/src/complements/'
+    'equiposAsignados': "/VISTA/src/complements/asignacionesTecnico.html"
 };
 
 new redireccion(botonesUrls);
