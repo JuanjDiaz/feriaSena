@@ -3,15 +3,20 @@
 echo "<script>console.log('PHP está funcionando');</script>";
 
 require_once "../MODELO/modeloUsuario.php";
+require_once "../MODELO/modeloBeneficiario.php";
 
 class Controlador{
 
     public $origen;
     public $user;
+    public $beneficiario;
+    public $equipo;
 
     public function __construct(){
         $this->origen=null;
         $this->user=null;
+        $this->beneficiario=null;
+        $this->equipo=null;
     }
 
     public function verificarOrigen(){
@@ -22,7 +27,8 @@ class Controlador{
                 $this->consultarUsuarioIngresado();
             }
             }elseif ($this->origen === "formulario"){
-                // $this->consultarRol();
+                $this->registrarBeneficiario();
+                $this->registrarEquipo();
         }else{
             echo "<script>console.log('Metodo post no recibido');</script>";
         }
@@ -47,6 +53,29 @@ class Controlador{
             echo "<script>alert('Usuario o contraseña incorrectos');</script>";
             echo "<script>window.location.href = '../VISTA/complements/login.html';</script>";
         }
+    }
+
+    public function registrarBeneficiario(){
+        $idBeneficiario=$_POST["idPropietario"]??"";
+        $nombreCompletoBeneficiario=$_POST["nombreCompletoPropietario"]??"";
+        $celularBeneficiario=$_POST["telefonoPropietario"]??"";
+        $correoBeneficiario=$_POST["emailPropietario"]??"";
+        $this->beneficiario=new Beneficiario($idBeneficiario,$nombreCompletoBeneficiario,$celularBeneficiario,$correoBeneficiario);
+        $registroBeneficiario=$this->beneficiario->crearBeneficiario();
+
+        if ($registroBeneficiario){
+            echo "<script>alert('Propietario registrado exitosamente');</script>";
+        }
+    }
+
+    public function registrarEquipo(){
+        // $idEquipo;
+
+        // $this->equipo=new Equipo();
+        // $registroEquipo=$this->equipo->crearEquipo();
+
+
+        //en revisión de como hacer de manera efectiva el registro de los datos de llaves foraneas como sede
     }
 
     

@@ -44,12 +44,23 @@ class Beneficiario{
     }
 
     public function crearBeneficiario(){
+        // iniciar conexion con la base de datos
         $conexion=$this->establecerConexion();
+        // preparar la consulta para registrar beneficiarios con parametros nombrados
         try{
-            $consulta= $conexion->prepare("INSERT INTO ");
-            // continuacion de de codigo sql para insertar beneficiarios
+            $consulta= $conexion->prepare("INSERT INTO beneficiario (Id_beneficiario,Nombre_completo,Celular,Email)
+                                            VALUES: (:idBeneficiario, :nombreCompleto, :celular, :email)");
+            // vincular los parámetros a los valores proporcionados
+            $consulta->bindParam(":idBeneficiario",$this->id,PDO::PARAM_INT);
+            $consulta->bindParam(":nombreCompleto",$this->nombreCompleto,PDO::PARAM_STR);
+            $consulta->bindParam(":celular",$this->celular,PDO::PARAM_INT);
+            $consulta->bindParam(":email",$this->correo,PDO::PARAM_STR);
+
+            // ejecutar la consulta
+            $consulta->execute();
+            return true;
         }catch(PDOException $e){
-            $mensajeError = "Error al validar usuario: " . $e->getMessage();
+            $mensajeError = "Error al registrar beneficiario: " . $e->getMessage();
             echo "<script>console.error(" . json_encode($mensajeError) . ");</script>";
             return false;
         }
@@ -62,7 +73,7 @@ class Beneficiario{
         if ($conexion) {
             echo "Inicio de sesión exitoso. Bienvenido.";
         } else {
-            echo "Usuario o contraseña incorrectos.";
+            echo "Inicio de sesión fallido. Bienvenido.";
         }
         return $conexion;
     }
