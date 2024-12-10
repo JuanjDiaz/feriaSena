@@ -1,85 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Feria SENA</title>
-        <link rel="icon" href="/VISTA/src/assets/images/logosena.ico">
-        <link rel="stylesheet" href="../assets/styles/formulario.css">
-    </head>
-    <body>
-        <div class="background"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feria SENA</title>
+    <link rel="icon" href="/VISTA/src/assets/images/logosena.ico" />
+    <link rel="stylesheet" href="../assets/styles/formulario.css" />
+  </head>
+  <body>
+    <div class="background"></div>
 
-        <header class="header">
-            <div class="logo-container">
-                <img src="/VISTA/src/assets/images/sena-logo.png" alt="Logo SENA">
-                <h1>FERIA XXXXX</h1>
-            </div>
-            <div class="access">
-                <div class="profile-icon">👤</div>
-            </div>
-        </header>
+    <header class="header">
+      <div class="logo-container">
+        <img src="/VISTA/src/assets/images/sena-logo.png" alt="Logo SENA" />
+        <h1>TECNOSERVIFERIA 2024</h1>
+      </div>
+      <div class="access">
+        <div class="profile-icon">👤</div>
+      </div>
+    </header>
 
-        <form action="/enviar-datos" method="post" id="miFormulario">
-            <h1 class="titulo">Formulario</h1>
-            <div class="form-container">
-                <!-- Parte izquierda -->
-                <div class="izquierda">
-                    <label for="nombreCompletoPropietario">Nombre Completo del Propietario:</label>
-                    <input type="text" id="nombreCompletoPropietario" name="nombreCompletoPropietario" required>
-                    
-                    <label for="idPropietario">ID del Propietario:</label>
-                    <input type="number" id="idPropietario" name="idPropietario" required>
-                    
-                    <label for="telefonoPropietario">Número de Telefono del Propietario:</label>
-                    <input type="number" id="telefonoPropietario" name="telefonoPropietario" required>
-                    
-                    <label for="emailPropietario">E-mail del Propietario:</label>
-                    <input type="email" id="emailPropietario" name="emailPropietario" required>
-                </div>
+    <form action="/enviar-datos" method="post" id="miFormulario">
+      <h1 class="titulo">Formulario</h1>
+      <div class="form-container">
+        <!-- Parte izquierda -->
+        <div class="izquierda">
+          <label for="nombreCompletoPropietario"
+            >Nombre Completo del Propietario:</label
+          >
+          <input
+            type="text"
+            id="nombreCompletoPropietario"
+            name="nombreCompletoPropietario"
+            required
+          />
 
-                <!-- Parte derecha -->
-                <div class="derecha">
-                    <label for="tipoEquipo">Tipo de Equipo:</label>
-                    <select id="tipoEquipo" name="tipoEquipo" required>
-                        <option value="" disabled selected>Seleccione</option>
-                        <option value="Portatil">Portátil</option>
-                        <option value="Escritorio">Escritorio</option>
-                        <option value="All in one">All In One</option>
-                    </select>
+          <label for="idPropietario">ID del Propietario:</label>
+          <input
+            type="number"
+            id="idPropietario"
+            name="idPropietario"
+            required
+          />
 
-                    <label for="procedimiento">Procedimiento Realizado:</label>
-                    <select id="procedimiento" name="procedimiento" required>
-                        <option value="" disabled selected>Seleccione</option>
-                        <option value="Limpieza de equipos de computo">Limpieza de equipos de computo</option>
-                        <option value="Formato e instalación de sistema operativo Windows y software requerido">Formato e instalación de sistema operativo Windows y software requerido</option>
-                        <option value="Instalación y/o actualización de Software">Instalación y/o actualización de Software</option>
-                        <option value="Diagnostico y/o reparación de Hardware">Diagnostico y/o reparación de Hardware</option>
-                    </select>
+          <label for="telefonoPropietario"
+            >Número de Telefono del Propietario:</label
+          >
+          <input
+            type="number"
+            id="telefonoPropietario"
+            name="telefonoPropietario"
+            required
+          />
 
-                    <label for="nombreTecnico">Nombre del Tecnico Asignado:</label>
-                    <input type="text" id="nombreTecnico" name="nombreTecnico" required>
+          <label for="emailPropietario">E-mail del Propietario:</label>
+          <input
+            type="email"
+            id="emailPropietario"
+            name="emailPropietario"
+            required
+          />
+        </div>
 
-                    <label for="estado">Estado del Tecnico:</label>
-                    <select id="estado" name="estado" required>
-                        <option value="" disabled selected>Seleccione</option>
-                        <option value="Disponible">Disponible</option>
-                        <option value="Ocupado">Ocupado</option>
-                        <option value="Ausente">Ausente</option>
-                    </select>
+        <!-- Parte derecha -->
+        <div class="derecha">
+          <label for="tipoEquipo">Tipo de Equipo:</label>
+          <select id="tipoEquipo" name="tipoEquipo" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Portatil">Portátil</option>
+            <option value="Escritorio">Escritorio</option>
+            <option value="All in one">All In One</option>
+          </select>
 
-                    <label for="sede">Sede:</label>
-                    <select id="sede" name="sede" class="selecciones" required>
-                        <option value="" disabled selected>Seleccione</option>
-                        <option value="Pescadero">Pescadero</option>
-                        <option value="Comuneros">Comuneros</option>
-                        <option value="Calzado">Calzado</option>
-                    </select>
-                </div>
-            </div>
-            <button class="boton">Enviar</button>
-            <h3>¡Gracias Por Contestar!</h3>
-        </form>
-        <script src="/VISTA/src/js/formulario.js"></script>
-    </body>
+          <label for="procedimiento">Procedimiento Realizado:</label>
+          <select id="procedimiento" name="procedimiento" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Limpieza de equipos de computo">
+              Limpieza de equipos de computo
+            </option>
+            <option
+              value="Formato e instalación de sistema operativo Windows y software requerido"
+            >
+              Formato e instalación de sistema operativo Windows y software
+              requerido
+            </option>
+            <option value="Instalación y/o actualización de Software">
+              Instalación y/o actualización de Software
+            </option>
+            <option value="Diagnostico y/o reparación de Hardware">
+              Diagnostico y/o reparación de Hardware
+            </option>
+          </select>
+
+          <label for="nombreTecnico">Nombre del Tecnico Asignado:</label>
+          <input type="text" id="nombreTecnico" name="nombreTecnico" required />
+
+          <label for="estado">Estado del Tecnico:</label>
+          <select id="estado" name="estado" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Disponible">Disponible</option>
+            <option value="Ocupado">Ocupado</option>
+            <option value="Ausente">Ausente</option>
+          </select>
+
+          <label for="sede">Sede:</label>
+          <select id="sede" name="sede" class="selecciones" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Pescadero">Pescadero</option>
+            <option value="Comuneros">Comuneros</option>
+            <option value="Calzado">Calzado</option>
+          </select>
+        </div>
+      </div>
+      <button class="boton">Enviar</button>
+      <h3>¡Gracias Por Contestar!</h3>
+    </form>
+    <script src="/VISTA/src/js/formulario.js"></script>
+  </body>
 </html>
