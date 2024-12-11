@@ -20,11 +20,14 @@ class Redirigir {
     }
 }
 
-const botonesUrls = {
-    'resumenEquipos': '/VISTA/src/complements/',
-    'informes': '/VISTA/src/complements/informes.html',
-    'AsignacionTecnico': "/VISTA/src/complements/asignacionesTecnico.html",
-    'registrarEqipo': '/VISTA/src/complements/formulario.html'
-};
+document.addEventListener('DOMContentLoaded', () => {
+    const botonesUrls = {
+        'informes': '../complements/informes.html',
+        'AsignacionTecnico': "../complements/asignacionesTecnico.html",
+        'registrarEqipo': '../complements/formulario.php'
+    };
+    
+    new Redirigir(botonesUrls);
+});
 
 new Redirigir(botonesUrls);

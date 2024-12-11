@@ -24,9 +24,13 @@ class redireccion {
     }
 }
 
-const botonesUrls = {
-    'resumenEquipos': '/VISTA/src/complements/',
-    'equiposAsignados': "/VISTA/src/complements/asignacionesTecnico.html"
-};
+document.addEventListener('DOMContentLoaded', () => {
+    const botonesUrls = {
+        'AsignacionTecnico': "../complements/asignacionesTecnico.html"
+    };
+    
+    new Redirigir(botonesUrls);
+});
+
 
 new redireccion(botonesUrls);

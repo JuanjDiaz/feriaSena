@@ -1,46 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feria SENA</title>
-    <link rel="icon" href="../assets/images/logosena.ico">
-    <link rel="stylesheet" href="../assets/styles/login.css">
-</head>
-<body>
+    <link rel="icon" href="../assets/images/logosena.ico" />
+    <link rel="stylesheet" href="../assets/styles/login.css" />
+  </head>
+  <body>
     <!-- Imagen de fondo -->
     <div class="background"></div>
 
     <header class="header">
-        <div class="logo-container">
-            <img src="../assets/images/sena-logo.png" alt="Logo SENA">
-            <h1>FERIA XXXXX</h1>
-        </div>
-        <div class="access">
-            <button class="access-button" onclick="showAccessAlert()">ACCEDER</button>
-            <div class="profile-icon">👤</div>
-        </div>
+      <div class="logo-container">
+        <img src="../assets/images/sena-logo.png" alt="Logo SENA" />
+        <h1>TECNOSERVIFERIA 2024</h1>
+      </div>
+      <div class="access">
+        <button class="access-button" onclick="showAccessAlert()">
+          ACCEDER
+        </button>
+        <div class="profile-icon">👤</div>
+      </div>
     </header>
 
     <main class="main-content">
-        <div class="text-section">
-            <h2>Texto</h2>
-            <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera.</p>
-        </div>
-        <div class="login-section">
-            <h3>Iniciar sesión</h3>
-            <a href="./formulario.html" id="signup-link">Registrarse</a>
-            <form id="login-form" method="post" action="../../../CONTROLADOR/controladorUsuario.php">
-                <input type="hidden" name="file-origen" value="login">
-                <div id="user-div" class="user-section">
-                <input name="usuario" id="user-input" type="text" placeholder="Usuario" required>
-                </div>
-                <div id="password-div" class="password-section">
-                <input name="contraseña" id="password-input" type="password" placeholder="Contraseña" required>
-                </div>
-                <button id="login-button" type="submit">INICIAR SESIÓN</button>
-            </form>
-        </div>
+      <div class="text-section">
+        <h2>Texto</h2>
+        <p>
+          Lorem Ipsum es simplemente el texto de relleno de las imprentas y
+          archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de
+          las industrias desde el año 1500, cuando un impresor (N. del T.
+          persona que se dedica a la imprenta) desconocido usó una galería de
+          textos y los mezcló de tal manera.
+        </p>
+      </div>
+      <div class="login-section">
+        <h3>Iniciar sesión</h3>
+        <a href="./formulario.html" id="signup-link">Registrarse</a>
+        <form
+          id="login-form"
+          method="post"
+          action="../../../CONTROLADOR/controladorUsuario.php"
+        >
+          <input type="hidden" name="file-origen" value="login" />
+          <div id="user-div" class="user-section">
+            <input
+              name="usuario"
+              id="user-input"
+              type="text"
+              placeholder="Usuario"
+              required
+            />
+          </div>
+          <div id="password-div" class="password-section">
+            <input
+              name="contraseña"
+              id="password-input"
+              type="password"
+              placeholder="Contraseña"
+              required
+            />
+          </div>
+          <button id="login-button" type="submit">INICIAR SESIÓN</button>
+        </form>
+      </div>
     </main>
 
     <script src="../js/login.js"></script>

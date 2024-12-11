@@ -1,18 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const tipoEquipoSelect = document.getElementById("tipoEquipo");
-  const documentoInput = document.getElementById("documento");
-  const idInput = document.getElementById("id");
-  const fechaInicioInput = document.getElementById("fechaInicio");
-  const fechaFinInput = document.getElementById("fechaFin");
-  const generarInformeBtn = document.getElementById("generarInformeBtn");
-  const descargarBtn = document.getElementById("descargarBtn");
-  const tablaBody = document.querySelector("table tbody");
+class Informes {
+  constructor() {
+    this.tipoEquipoSelect = document.getElementById("tipoEquipo");
+    this.documentoInput = document.getElementById("documento");
+    this.idInput = document.getElementById("id");
+    this.fechaInicioInput = document.getElementById("fechaInicio");
+    this.fechaFinInput = document.getElementById("fechaFin");
+    this.generarInformeBtn = document.getElementById("generarInformeBtn");
+    this.descargarBtn = document.getElementById("descargarBtn");
+    this.tablaBody = document.querySelector("table tbody");
 
-  function generarInforme() {
+    this.initEventListeners();
+  }
+
+  initEventListeners() {
+    this.generarInformeBtn.addEventListener("click", () =>
+      this.generarInforme()
+    );
+    this.descargarBtn.addEventListener("click", () => this.descargarInforme());
+  }
+
+  generarInforme() {
     const datosFiltrados = [
       {
         id: 123,
-        equipo: tipoEquipoSelect.value,
+        equipo: this.tipoEquipoSelect.value,
         propietario: "Luis Fossi",
         tecnico: "Javier Gómez",
         fechaRecepcion: "2024-11-22",
@@ -21,25 +32,26 @@ document.addEventListener("DOMContentLoaded", () => {
         procedimientos: "Mantenimiento",
       },
     ];
-    tablaBody.innerHTML = "";
+
+    this.tablaBody.innerHTML = "";
     datosFiltrados.forEach((dato) => {
       const fila = document.createElement("tr");
       fila.innerHTML = `
-          <td>${dato.id}</td>
-          <td>${dato.equipo}</td>
-          <td>${dato.propietario}</td>
-          <td>${dato.tecnico}</td>
-          <td>${dato.fechaRecepcion}</td>
-          <td>${dato.fechaEntrega}</td>
-          <td>${dato.estado}</td>
-          <td>${dato.procedimientos}</td>
-        `;
-      tablaBody.appendChild(fila);
+        <td>${dato.id}</td>
+        <td>${dato.equipo}</td>
+        <td>${dato.propietario}</td>
+        <td>${dato.tecnico}</td>
+        <td>${dato.fechaRecepcion}</td>
+        <td>${dato.fechaEntrega}</td>
+        <td>${dato.estado}</td>
+        <td>${dato.procedimientos}</td>
+      `;
+      this.tablaBody.appendChild(fila);
     });
   }
 
-  function descargarInforme() {
-    const datosTabla = Array.from(tablaBody.rows).map((row) =>
+  descargarInforme() {
+    const datosTabla = Array.from(this.tablaBody.rows).map((row) =>
       Array.from(row.cells).map((cell) => cell.textContent)
     );
     const encabezados = [
@@ -62,7 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
     enlace.click();
     URL.revokeObjectURL(enlace.href);
   }
+}
 
-  generarInformeBtn.addEventListener("click", generarInforme);
-  descargarBtn.addEventListener("click", descargarInforme);
+// Inicializar la clase cuando el DOM esté cargado
+document.addEventListener("DOMContentLoaded", () => {
+  new Informes();
 });
