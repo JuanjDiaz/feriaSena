@@ -13,15 +13,30 @@ $botones="";
 
 if ($rolUsuario==="Administrador"){
     $botones= "
-        <a href='./informes.html' class='panel-button'>Informe</a>
-        <a href='./formulario.php' class='panel-button'>Formulario</a>
-        <a href='./asignacionesTecnico.html' class='panel-button'>Asignaciones</a>";
+        <form action='../../../CONTROLADOR/controladorUsuario.php' method='post' class='panel-form'>
+            <input type='hidden' name='file-origen' value='home-informes'>
+            <button type='submit' class='panel-button'>Informes</button>
+        </form>
+        <form action='../../../CONTROLADOR/controladorUsuario.php' method='post' class='panel-form'>
+            <input type='hidden' name='file-origen' value='home-formulario'>
+            <button type='submit' class='panel-button'>Formulario</button>
+        </form>
+        <form action='../../../CONTROLADOR/controladorUsuario.php' method='post' class='panel-form'>
+            <input type='hidden' name='file-origen' value='home-asignaciones'>
+            <button type='submit' class='panel-button'>Asignaciones</button>
+        </form>";
 }elseif ($rolUsuario==="Auxiliar"){
     $botones = "
-        <a href='./formulario.php' class='panel-button'>Formulario</a>";
+        <form action='../../../CONTROLADOR/controladorUsuario.php' method='post' class='panel-form'>
+            <input type='hidden' name='file-origen' value='home-formulario'>
+            <button type='submit' class='panel-button'>Formulario</button>
+        </form>";
 }elseif ($rolUsuario==="Tecnico"){
     $botones = "
-        <a href='./asignacionesTecnico.html' class='panel-button'>Asignaciones</a>";
+        <form action='../../../CONTROLADOR/controladorUsuario.php' method='post' class='panel-form'>
+            <input type='hidden' name='file-origen' value='home-asignaciones'>
+            <button type='submit' class='panel-button'>Asignaciones</button>
+        </form>";
 }
 
 ?>
@@ -36,91 +51,6 @@ if ($rolUsuario==="Administrador"){
     <link rel="icon" href="../assets/images/logosena.ico">
     <link rel="stylesheet" href="../assets/styles/login.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- Enlace a Material Icons -->
-    <style>
-        /* Añadir estilos generales para centrar contenido */
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .text-section {
-            max-width: 600px;
-        }
-
-        .button-container {
-            margin-top: 20px;
-        }
-
-        .panel-button {
-            background-color: green;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .panel-button:hover {
-            background-color: darkgreen;
-        }
-
-        /* Estilos del header */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-container img {
-            margin-right: 10px;
-        }
-
-        /* Estilos para los íconos en el header */
-        .custom-nav {
-            display: flex;
-            align-items: center;
-            font-size: 30px;
-            gap: 20px;
-        }
-
-        .custom-nav span, .custom-nav i {
-            cursor: pointer;
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .custom-nav span:hover, .custom-nav i:hover {
-            transform: scale(1.2);
-            color: rgb(15, 180, 15);
-        }
-
-        /* Estilo para el nombre de usuario y foto */
-        .profile-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .profile-container img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .profile-container span {
-            font-size: 18px;
-        }
-    </style>
 </head>
 <body>
     <!-- Imagen de fondo -->
@@ -152,16 +82,5 @@ if ($rolUsuario==="Administrador"){
             </div>
         </div>
     </main>
-
-    <!-- <script>
-        // Simulación de un usuario logueado
-        var nombreUsuario = "Henry"; // Aquí deberías obtener el nombre real del usuario desde tu sistema
-
-        // Asignar el nombre dinámicamente
-        document.getElementById("username").textContent = nombreUsuario;
-        document.getElementById("welcomeName").textContent = nombreUsuario;
-    </script> -->
-
-    <script src="/VISTA/src/js/login.js"></script>
 </body>
 </html>
