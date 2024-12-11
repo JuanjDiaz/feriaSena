@@ -1,5 +1,16 @@
 <?php
 
+session_start();
+
+$tecnicos=$_SESSION["tecnicos"]??[];
+if (!empty($tecnicos)){
+    
+    foreach($tecnicos as $tecnico){
+
+    }
+}
+    
+
 ?>
 
 <!DOCTYPE html>

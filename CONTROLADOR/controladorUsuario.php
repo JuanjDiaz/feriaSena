@@ -19,16 +19,23 @@ class Controlador{
         $this->equipo=null;
     }
 
+    //ejecutar metodos segun la vista 
     public function verificarOrigen(){
         if ($_SERVER["REQUEST_METHOD"]==="POST"){
             $this->origen=$_POST["file-origen"]?? "";
 
             if ($this->origen==="login"){
                 $this->consultarUsuarioIngresado();
-            }
+            }elseif ($this->origen==="home-informes") {
+
+            }elseif ($this->origen==="home-formulario"){
+                $this->consultarTecnicoYSedeExistente();
+            }elseif ($this->origen==="home-asignaciones") {
+                
             }elseif ($this->origen === "formulario"){
                 $this->registrarBeneficiario();
-                $this->registrarEquipo();
+                // $this->registrarEquipo();
+            }
         }else{
             echo "<script>console.log('Metodo post no recibido');</script>";
         }
@@ -78,6 +85,18 @@ class Controlador{
         //en revisión de como hacer de manera efectiva el registro de los datos de llaves foraneas como sede
     }
 
+    public function consultarTecnicoYSedeExistente(){
+        $this->equipo=new Equipo();
+        $consultaTecnicos=$this->equipo->consultarTecnico();
+        $consultaSedes=$this->equipo->consultaSede();
+        if ($consultaTecnicos && $consultaSedes){
+            session_start();
+            $_SESSION["tecnicos"]=$consultaTecnicos;
+            $_SESSION["sedes"]=$consultaSedes;
+            header("Location:../VISTA/src/complements/formulario.php");
+            exit();
+        }
+    }
     
 }
 $controlador= new Controlador();
