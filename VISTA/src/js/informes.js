@@ -1,82 +1,69 @@
-class Informes {
-  constructor() {
-    this.tipoEquipoSelect = document.getElementById("tipoEquipo");
-    this.documentoInput = document.getElementById("documento");
-    this.idInput = document.getElementById("id");
-    this.fechaInicioInput = document.getElementById("fechaInicio");
-    this.fechaFinInput = document.getElementById("fechaFin");
-    this.generarInformeBtn = document.getElementById("generarInformeBtn");
-    this.descargarBtn = document.getElementById("descargarBtn");
-    this.tablaBody = document.querySelector("table tbody");
+document
+  .getElementById("generarInformeBtn")
+  .addEventListener("click", function () {
+    const form = document.getElementById("informeForm");
+    const formData = new FormData(form);
 
-    this.initEventListeners();
-  }
-
-  initEventListeners() {
-    this.generarInformeBtn.addEventListener("click", () =>
-      this.generarInforme()
+    // Validar si algún campo está vacío
+    const inputs = Array.from(form.querySelectorAll("input, select"));
+    const camposVacios = inputs.filter(
+      (input) => input.value.trim() === "" && input.hasAttribute("name")
     );
-    this.descargarBtn.addEventListener("click", () => this.descargarInforme());
+
+    if (camposVacios.length > 0) {
+      alert(
+        "Por favor, complete todos los campos antes de generar el informe."
+      );
+      return;
+    }
+
+    fetch("", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const tablaBody = document.getElementById("tablaBody");
+        tablaBody.innerHTML = "";
+
+        data.forEach((dato) => {
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+                  <td>${dato.id}</td>
+                  <td>${dato.equipo}</td>
+                  <td>${dato.propietario}</td>
+                  <td>${dato.tecnico}</td>
+                  <td>${dato.fechaRecepcion}</td>
+                  <td>${dato.fechaEntrega}</td>
+                  <td>${dato.estado}</td>
+                  <td>${dato.procedimientos}</td>
+              `;
+          tablaBody.appendChild(fila);
+        });
+      });
+  });
+
+document.getElementById("descargarBtn").addEventListener("click", function () {
+  const rows = Array.from(document.querySelectorAll("#tablaBody tr"));
+  if (rows.length === 0) {
+    alert("No hay datos para descargar.");
+    return;
   }
 
-  generarInforme() {
-    const datosFiltrados = [
-      {
-        id: 123,
-        equipo: this.tipoEquipoSelect.value,
-        propietario: "Luis Fossi",
-        tecnico: "Javier Gómez",
-        fechaRecepcion: "2024-11-22",
-        fechaEntrega: "2024-12-02",
-        estado: "Entregado",
-        procedimientos: "Mantenimiento",
-      },
-    ];
+  let csvContent =
+    "ID,Equipo,Propietario,Técnico asignado,Fecha de recepción,Fecha de entrega,Estado,Procedimientos realizados\n";
 
-    this.tablaBody.innerHTML = "";
-    datosFiltrados.forEach((dato) => {
-      const fila = document.createElement("tr");
-      fila.innerHTML = `
-        <td>${dato.id}</td>
-        <td>${dato.equipo}</td>
-        <td>${dato.propietario}</td>
-        <td>${dato.tecnico}</td>
-        <td>${dato.fechaRecepcion}</td>
-        <td>${dato.fechaEntrega}</td>
-        <td>${dato.estado}</td>
-        <td>${dato.procedimientos}</td>
-      `;
-      this.tablaBody.appendChild(fila);
-    });
-  }
+  rows.forEach((row) => {
+    const cells = Array.from(row.children).map((cell) => cell.textContent);
+    csvContent += cells.join(",") + "\n";
+  });
 
-  descargarInforme() {
-    const datosTabla = Array.from(this.tablaBody.rows).map((row) =>
-      Array.from(row.cells).map((cell) => cell.textContent)
-    );
-    const encabezados = [
-      "ID",
-      "Equipo",
-      "Propietario",
-      "Técnico",
-      "Recepción",
-      "Entrega",
-      "Estado",
-      "Procedimientos",
-    ];
-    const contenidoCSV = [encabezados, ...datosTabla]
-      .map((fila) => fila.join(","))
-      .join("\n");
-    const blob = new Blob([contenidoCSV], { type: "text/csv" });
-    const enlace = document.createElement("a");
-    enlace.href = URL.createObjectURL(blob);
-    enlace.download = "informe.csv";
-    enlace.click();
-    URL.revokeObjectURL(enlace.href);
-  }
-}
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
 
-// Inicializar la clase cuando el DOM esté cargado
-document.addEventListener("DOMContentLoaded", () => {
-  new Informes();
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "informe.csv";
+  a.click();
+  URL.revokeObjectURL(url);
 });
