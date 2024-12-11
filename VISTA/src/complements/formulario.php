@@ -32,51 +32,67 @@
     <div class="form-container">
       <!-- Parte izquierda -->
       <div class="izquierda">
-        <label for="nombreCompletoPropietario">Nombre Completo del Propietario:</label>
-        <input type="text" id="nombreCompletoPropietario" name="nombreCompletoPropietario" required>
+        <div id="nombreCompletoPropietario">
+          <label for="nombreCompletoPropietario">Nombre Completo del Propietario:</label>
+          <input type="text" id="nombreCompletoPropietario" name="nombreCompletoPropietario" >
+        </div>
 
-        <label for="idPropietario">ID del Propietario:</label>
-        <input type="number" id="idPropietario" name="idPropietario" required>
+        <div id="idPropietario">
+          <label for="idPropietario">ID del Propietario:</label>
+          <input type="number" id="idPropietario" name="idPropietario">
+        </div>
 
-        <label for="telefonoPropietario">Número de Telefono del Propietario:</label>
-        <input type="number" id="telefonoPropietario" name="telefonoPropietario" required>
+        <div id="telefonoPropietario">
+          <label for="telefonoPropietario">Número de Telefono del Propietario:</label>
+          <input type="number" id="telefonoPropietario" name="telefonoPropietario">
+        </div>
 
-        <label for="emailPropietario">E-mail del Propietario:</label>
-        <input type="email" id="emailPropietario" name="emailPropietario" required>
+        <div id="emailPropietario">
+          <label for="emailPropietario">E-mail del Propietario:</label>
+          <input type="email" id="emailPropietario" name="emailPropietario">
+        </div>
       </div>
 
       <!-- Parte derecha -->
       <div class="derecha">
-        <label for="tipoEquipo">Tipo de Equipo:</label>
-        <select id="tipoEquipo" name="tipoEquipo" required>
-          <option value="" disabled selected>Seleccione</option>
-          <option value="Portatil">Portátil</option>
-          <option value="Escritorio">Escritorio</option>
-          <option value="All in one">All In One</option>
-        </select>
+        <div id="tipoEquipo">
+          <label for="tipoEquipo">Tipo de Equipo:</label>
+          <select id="tipoEquipo" name="tipoEquipo">
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Portatil">Portátil</option>
+            <option value="Escritorio">Escritorio</option>
+            <option value="All in one">All In One</option>
+          </select>
+        </div>
 
-        <label for="procedimiento">Procedimiento a realizar:</label>
-        <select id="procedimiento" name="procedimiento" required>
-          <option value="" disabled selected>Seleccione</option>
-          <option value="Limpieza de equipos de computo">Limpieza de equipos de computo</option>
-          <option value="Formato e instalación de sistema operativo Windows y software requerido">Formato e instalación de sistema operativo Windows y software requerido</option>
-          <option value="Instalación y/o actualización de Software">Instalación y/o actualización de Software</option>
-          <option value="Diagnostico y/o reparación de Hardware">Diagnostico y/o reparación de Hardware</option>
-        </select>
+        <div id="procedimiento">
+          <label for="procedimiento">Procedimiento a realizar:</label>
+          <select id="procedimiento" name="procedimiento">
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Limpieza de equipos de computo">Limpieza de equipos de computo</option>
+            <option value="Formato e instalación de sistema operativo Windows y software requerido">Formato e instalación de sistema operativo Windows y software requerido</option>
+            <option value="Instalación y/o actualización de Software">Instalación y/o actualización de Software</option>
+            <option value="Diagnostico y/o reparación de Hardware">Diagnostico y/o reparación de Hardware</option>
+          </select>
+        </div>
 
-        <label for="nombreTecnico">Nombre del Tecnico a Asignar:</label>
-        <input type="text" id="nombreTecnico" name="nombreTecnico" required>
+        <div id="nombreTecnico">
+          <label for="nombreTecnico">Nombre del Tecnico a Asignar:</label>
+          <input type="text" id="nombreTecnico" name="nombreTecnico">
+        </div>
 
-        <label for="sede">Sede:</label>
-        <select id="sede" name="sede" class="selecciones" required>
-          <option value="" disabled selected>Seleccione</option>
-          <option value="Pescadero">Pescadero</option>
-          <option value="Comuneros">Comuneros</option>
-          <option value="Calzado">Calzado</option>
-        </select>
+        <div id="sede">
+          <label for="sede">Sede:</label>
+          <select id="sede" name="sede" class="selecciones">
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Pescadero">Pescadero</option>
+            <option value="Comuneros">Comuneros</option>
+            <option value="Calzado">Calzado</option>
+          </select>
+        </div>
       </div>
     </div>
-    <button class="boton">Enviar</button>
+    <button type="submit" class="boton">Enviar</button>
     <h3>¡Gracias Por Contestar!</h3>
   </form>
 
