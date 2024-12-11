@@ -1,7 +1,21 @@
 document
   .getElementById("generarInformeBtn")
   .addEventListener("click", function () {
-    const formData = new FormData(document.getElementById("informeForm"));
+    const form = document.getElementById("informeForm");
+    const formData = new FormData(form);
+
+    // Validar si algún campo está vacío
+    const inputs = Array.from(form.querySelectorAll("input, select"));
+    const camposVacios = inputs.filter(
+      (input) => input.value.trim() === "" && input.hasAttribute("name")
+    );
+
+    if (camposVacios.length > 0) {
+      alert(
+        "Por favor, complete todos los campos antes de generar el informe."
+      );
+      return;
+    }
 
     fetch("", {
       method: "POST",

@@ -75,14 +75,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="col-md-6">
             <label for="tipoEquipo" class="form-label">Tipo de equipo</label>
             <select id="tipoEquipo" name="tipoEquipo" class="form-select">
-              <option selected>Escritorio</option>
+              <option selected>Tipo Equipo</option>
               <option>Portátil</option>
             </select>
           </div>
           <div class="col-md-6">
             <label for="documento" class="form-label">Nombre del tecnico
             </label>
-            <input type="text" id="documento" name="documento" class="form-control" placeholder="Ingrese documento">
+            <select id="documento" name="documento" class="form-select">
+              <option selected> Tecnico </option>
+              <option> dayana </option>
+            </select>
           </div>
           <div class="col-md-6">
             <label for="id" class="form-label">ID</label>
