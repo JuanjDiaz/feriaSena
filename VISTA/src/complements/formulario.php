@@ -59,6 +59,7 @@ if (!empty($tecnicos && $sedes)){
 
   <form action="../../../CONTROLADOR/controladorUsuario.php" method="post" id="miFormulario">
     <input type="hidden" name="file-origen" value="formulario">
+    <input type="hidden" name="mensaje" id="mensaje" value=""> <!-- Campo oculto para el mensaje -->
     <h1 class="titulo">Formulario</h1>
     <div class="form-container">
       <!-- Parte izquierda -->
