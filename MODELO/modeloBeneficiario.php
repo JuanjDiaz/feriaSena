@@ -49,7 +49,7 @@ class Beneficiario{
         // preparar la consulta para registrar beneficiarios con parametros nombrados
         try{
             $consulta= $conexion->prepare("INSERT INTO beneficiario (Id_beneficiario,Nombre_completo,Celular,Email)
-                                            VALUES: (:idBeneficiario, :nombreCompleto, :celular, :email)");
+                                            VALUES (:idBeneficiario, :nombreCompleto, :celular, :email)");
             // vincular los parámetros a los valores proporcionados
             $consulta->bindParam(":idBeneficiario",$this->id,PDO::PARAM_INT);
             $consulta->bindParam(":nombreCompleto",$this->nombreCompleto,PDO::PARAM_STR);
