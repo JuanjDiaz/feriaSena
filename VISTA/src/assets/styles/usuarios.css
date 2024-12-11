@@ -1,0 +1,262 @@
+/* Reinicio de estilos y ajustes globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo global para el cuerpo */
+  .body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* Estilo para los encabezados */
+  h1,
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  /* Estilos para el encabezado */
+  .custom-header {
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(0, 97, 0));
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  
+  .custom-logo {
+    position: sticky;
+    top: 20px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+  
+  /* Estilos para la barra lateral */
+  .sidebar {
+    width: 250px;
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(6, 68, 6));
+    color: white;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #0a5d0a;
+    text-decoration: underline;
+  }
+  
+  .sidebar ul li a.active {
+    background-color: #1a7d1a;
+  }
+  
+  /* Estilos para el contenido principal */
+  .content {
+    padding: 20px;
+    width: calc(100% - 250px);
+  }
+  
+  /* Estilos para los formularios de filtros */
+  .filters {
+    background-color: #e9f7ef;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filters .form-label {
+    font-weight: bold;
+  }
+  
+  .filters .form-select,
+  .filters .form-control {
+    border-radius: 5px;
+  }
+  
+  /* Disposición de los formularios en dos columnas */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .row .col-md-6 {
+    flex: 0 0 50%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  
+  .col-md-6 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilos para la tabla */
+  .table {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    padding: .75rem;
+    text-align: center;
+  }
+  
+  .table>:not(caption)>*>* {
+    padding: .75rem .5rem;
+    background-color: #0c490e92;
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+  }
+  
+  .table-success {
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(6, 68, 6));
+    color: white;
+  }
+  
+  .table td select {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  /* Estilos para los botones */
+  .btn-success {
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(6, 68, 6));
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .btn-success:hover {
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(6, 68, 6));
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 15px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-close {
+    color: #6c757d;
+  }
+  
+  /* Modal */
+  .modal-content {
+    border-radius: 10px;
+  }
+  
+  .modal-header {
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(6, 68, 6));
+    color: white;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+  }
+  
+  .modal-footer .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  .modal-footer .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .modal-footer .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo del botón de cerrar modal */
+  .btn-close {
+    color: #6c757d;
+  }
+  
+  /* Estilos generales para los inputs */
+  .form-control,
+  .form-select {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  /* Modificar estilo de la fila de usuarios */
+  #tablaUsuariosBody tr:hover {
+    background-color: #d3e6d3;
+  }
+  
+  /* Asegurando que los formularios estén bien alineados y tengan bordes redondeados */
+  #usuarioForm .form-control,
+  #usuarioForm .form-select {
+    border-radius: 5px;
+  }
+  
+  #usuarioForm .btn-success {
+    width: 100%;
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(6, 68, 6));
+  }
+  
+  #modalModificarUsuario .form-control,
+  #modalModificarUsuario .form-select {
+    border-radius: 5px;
+  }
+  
+  #modalModificarUsuario .btn-primary {
+    background: linear-gradient(45deg, rgb(2, 57, 2), rgb(12, 137, 12), rgb(6, 68, 6));
+    color: white;
+  }
+  
+  /* Ajustes de las celdas de la tabla */
+  #tablaUsuariosBody td {
+    background-color: #1ee224;
+    text-align: center;
+  }
+  
+  #tablaUsuariosBody tr:hover td {
+    background-color: #1dbb1e;
+  }
+  
