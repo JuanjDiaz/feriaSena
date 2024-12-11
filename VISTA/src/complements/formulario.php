@@ -3,11 +3,31 @@
 session_start();
 
 $tecnicos=$_SESSION["tecnicos"]??[];
-if (!empty($tecnicos)){
-    
-    foreach($tecnicos as $tecnico){
+$sedes=$_SESSION["sedes"]??[];
 
+if (!empty($tecnicos && $sedes)){
+    //crear select de tecnicos
+    $selectTecnicos="<select name='tecnico' id='tecnico'>
+                      <option value='' disabled selected>Seleccione</option>";
+    foreach($tecnicos as $tecnico){
+      $idTecnico=htmlspecialchars($tecnico["Id_usuario"]);
+      $nombreTecnico=htmlspecialchars($tecnico["Nombre"]);
+      $selectTecnicos .="
+                    <option value='{$idTecnico}'> 
+                      {$nombreTecnico}
+                    </option>";
     }
+    $selectTecnicos .= "</select>";
+
+    //crear select de sedes
+    $selectSedes = "<select name='sede' id='sede'>
+                    <option value='' disabled selected>Seleccione</option>";
+    foreach ($sedes as $sede) {
+        $idSede = htmlspecialchars($sede["Id_sede"]);
+        $nombreSede = htmlspecialchars($sede["Nombre"]);
+        $selectSedes .= "<option value='{$idSede}'>{$nombreSede}</option>";
+    }
+    $selectSedes .= "</select>";
 }
     
 
@@ -66,6 +86,12 @@ if (!empty($tecnicos)){
 
       <!-- Parte derecha -->
       <div class="derecha">
+        <div id="idEquipo">
+          <label for="idEquipo">ID del Equipo:</label>
+          <input type="text" id="idEquipo" name="idEquipo">
+        </div>
+
+      <div class="derecha">
         <div id="tipoEquipo">
           <label for="tipoEquipo">Tipo de Equipo:</label>
           <select id="tipoEquipo" name="tipoEquipo">
@@ -89,17 +115,12 @@ if (!empty($tecnicos)){
 
         <div id="nombreTecnico">
           <label for="nombreTecnico">Nombre del Tecnico a Asignar:</label>
-          <input type="text" id="nombreTecnico" name="nombreTecnico">
+          <?php echo $selectTecnicos; ?>
         </div>
 
         <div id="sede">
           <label for="sede">Sede:</label>
-          <select id="sede" name="sede" class="selecciones">
-            <option value="" disabled selected>Seleccione</option>
-            <option value="Pescadero">Pescadero</option>
-            <option value="Comuneros">Comuneros</option>
-            <option value="Calzado">Calzado</option>
-          </select>
+          <?php echo $selectSedes; ?>
         </div>
       </div>
     </div>
@@ -107,7 +128,7 @@ if (!empty($tecnicos)){
     <h3>¡Gracias Por Contestar!</h3>
   </form>
 
-  <script src="../js/formulario.js"></script>
+  <!-- <script src="../js/formulario.js"></script> -->
 </body>
 
 </html>

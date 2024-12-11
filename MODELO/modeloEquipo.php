@@ -2,12 +2,12 @@
 
 class Equipo{
 
-    public int $id;
-    public string $tipo;
-    public int $idBeneficiario;
-    public int $idTecnico;
-    public int $idSede;
-    public string $estado;
+    public ?int $id;
+    public ?string $tipo;
+    public ?int $idBeneficiario;
+    public ?int $idTecnico;
+    public ?int $idSede;
+    public ?string $estado;
 
     public function __construct()
     {
@@ -76,13 +76,15 @@ class Equipo{
             $consulta->bindParam(":idBeneficiario",$this->idBeneficiario,PDO::PARAM_INT);
             $consulta->bindParam(":idTecnico",$this->idTecnico,PDO::PARAM_INT);
             $consulta->bindParam(":idSede",$this->idSede,PDO::PARAM_INT);
-            $consulta->bindParam(("estado"), $this->estado,PDO::PARAM_STR);
+            $consulta->bindParam("estado", $this->estado,PDO::PARAM_STR);
             
             $consulta->execute();
             return true;
+            
         }catch (PDOException $e){
             $mensajeError = "Error al registrar equipo: " . $e->getMessage();
             echo "<script>console.error(" . json_encode($mensajeError) . ");</script>";
+            
             return false;
         }
     }
