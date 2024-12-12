@@ -100,7 +100,6 @@ class Equipo{
         }catch (PDOException $e) {
             echo "<script>console.error('Error al obtener técnicos: " . $e->getMessage() . "');</script>";
         }
-        return $tecnicos;
     }
 
     public function consultaSede(){
@@ -115,6 +114,19 @@ class Equipo{
             echo "<script>console.error('Error al obtener sedes: " . $e->getMessage() . "');</script>";
         }
         return $sedes;
+    }
+
+    public function consultaEquipo(){
+        $conexion=$this->establecerConexion();
+        $consultaEquipos=[];
+        try{
+            $consulta=$conexion->prepare("SELECT equipo.id_equipo, equipo.Tipo, usuario.Nombre, equipo_procedimiento.Fecha_ingreso, equipo_procedimiento.Fecha_salida FROM feria_sena.equipo_procedimiento INNER JOIN feria_sena.equipo ON equipo_procedimiento.id_equipo = equipo.id_equipo INNER JOIN feria_sena.usuario ON equipo.id_tecnico = usuario.id_usuario;");
+            $consulta->execute();
+            $consultaEquipos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+            return $consultaEquipos;
+        }catch (PDOException $e) {
+            echo "<script>console.error('Error al obtener técnicos: " . $e->getMessage() . "');</script>";
+        }
     }
 
     public function establecerConexion(){

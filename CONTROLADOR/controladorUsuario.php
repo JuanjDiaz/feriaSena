@@ -82,6 +82,16 @@ class Controlador{
             echo "<script>alert('Error en registrar equipo');</script>";
         }
     }
+
+    public function consultarEquipo(){
+        $consultaEquipos=$this->equipo->consultaEquipo();
+        if ($consultaEquipos){
+            session_start();
+            $_SESSION["equipos"]=$consultaEquipos;
+            header("Location:../VISTA/src/complements/formulario.php");
+            exit();
+        }
+    }
     
 }
 $controlador= new Controlador();
