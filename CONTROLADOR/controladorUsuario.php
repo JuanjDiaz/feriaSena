@@ -69,15 +69,19 @@ class Controlador{
     }
 
     public function registrarEquipo(){
-        // $idEquipo;
-
-        // $this->equipo=new Equipo();
-        // $registroEquipo=$this->equipo->crearEquipo();
-
-
-        //en revisión de como hacer de manera efectiva el registro de los datos de llaves foraneas como sede
+        $idEquipo=$_POST["idEquipo"];
+        $tipoEquipo=$_POST["tipoEquipo"];
+        // $procedimiento=$_POST["procedimiento"];
+        $idTecnico=$_POST["tecnico"];
+        $sede=$_POST["sede"];
+        $this->equipo->setDatos($idEquipo,$tipoEquipo,$this->idBeneficiario,$idTecnico,$sede,"Pendiente");
+        $registroEquipo=$this->equipo->crearEquipo();
+        if ($registroEquipo){
+            echo "<script>alert('Equipo registrado exitosamente');</script>";
+        }else{
+            echo "<script>alert('Error en registrar equipo');</script>";
+        }
     }
-
     
 }
 $controlador= new Controlador();
