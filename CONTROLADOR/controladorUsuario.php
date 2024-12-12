@@ -109,21 +109,6 @@ class Controlador{
             echo "<script>alert('Error en registrar equipo');</script>";
         }
     }
-
-    // public function cambiarMensajeFormulario(){
-    //     if ($registroBeneficiario) {
-    //         $_POST['mensaje'] = "Beneficiario registrado exitosamente";
-    //     } else {
-    //         $_POST['mensaje'] = "Error al registrar beneficiario";
-    //     }
-        
-    //     if ($registroEquipo) {
-    //         $_POST['mensaje'] .= " y Equipo registrado exitosamente";
-    //     } else {
-    //         $_POST['mensaje'] .= " pero error al registrar equipo";
-    //     }
-        
-    // }
     
 }
 $controlador= new Controlador();
