@@ -38,27 +38,22 @@ class Beneficiario{
     public function buscarAsignacion(){
         // iniciar conexion con la base de datos
         $conexion=$this->establecerConexion();
-        // preparar la consulta para registrar beneficiarios con parametros nombrados
         try{
             $consulta= $conexion->prepare("SELECT equipo.Id_equipo, equipo.Tipo, beneficiario.Nombre_completo, usuario.Nombre AS Nombre_Usuario, equipo_procedimiento.Fecha_ingreso, equipo.Estado
                                             FROM equipo
                                             JOIN beneficiario ON equipo.Id_beneficiario = beneficiario.Id_beneficiario
                                             JOIN usuario ON equipo.Id_tecnico = usuario.Id_usuario
                                             JOIN equipo_procedimiento ON equipo.Id_equipo = equipo_procedimiento.Id_equipo
-                                            WHERE usuario.Nombre = '' AND 
-	                                                equipo.Estado = '' AND 
-                                                    equipo_procedimiento.Fecha_ingreso = ''; ");
-            // vincular los parámetros a los valores proporcionados
-            $consulta->bindParam(":idBeneficiario",$this->id,PDO::PARAM_INT);
-            $consulta->bindParam(":nombreCompleto",$this->nombreCompleto,PDO::PARAM_STR);
-            $consulta->bindParam(":celular",$this->celular,PDO::PARAM_INT);
-            $consulta->bindParam(":email",$this->correo,PDO::PARAM_STR);
+                                            WHERE usuario.Nombre = ? AND 
+	                                                equipo.Estado = ? AND 
+                                                    equipo_procedimiento.Fecha_ingreso = ? ");
+            $consulta->bindParam("sss", $nombre_usuario, $estado_equipo, $fecha_ingreso);
 
             // ejecutar la consulta
             $consulta->execute();
             return true;
         }catch(PDOException $e){
-            $mensajeError = "Error al registrar beneficiario: " . $e->getMessage();
+            $mensajeError = "Error al hacer la consulta: " . $e->getMessage();
             echo "<script>console.error(" . json_encode($mensajeError) . ");</script>";
             return false;
         }
