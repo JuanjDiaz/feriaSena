@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM completamente cargado y analizado");
-  let usuarios = [];
-  let usuarioId = 1;
-
   const tablaUsuariosBody = document.getElementById("tablaUsuariosBody");
   const agregarUsuarioBtn = document.getElementById("agregarUsuarioBtn");
   const modalModificarUsuario = new bootstrap.Modal(
@@ -12,20 +8,23 @@ document.addEventListener("DOMContentLoaded", function () {
     "guardarCambiosUsuarioBtn"
   );
 
+  let usuarios = [];
+  let usuarioId = 1;
+
   function renderUsuarios() {
     tablaUsuariosBody.innerHTML = "";
     usuarios.forEach((usuario) => {
       const fila = document.createElement("tr");
       fila.innerHTML = `
-          <td>${usuario.id}</td>
-          <td>${usuario.nombre}</td>
-          <td>${usuario.email}</td>
-          <td>${usuario.rol}</td>
-          <td>
-            <button class="btn btn-warning btn-sm modificarBtn" data-id="${usuario.id}">Modificar</button>
-            <button class="btn btn-danger btn-sm eliminarBtn" data-id="${usuario.id}">Eliminar</button>
-          </td>
-        `;
+        <td>${usuario.id}</td>
+        <td>${usuario.nombre}</td>
+        <td>${usuario.email}</td>
+        <td>${usuario.rol}</td>
+        <td>
+          <button class="btn btn-warning btn-sm modificarBtn" data-id="${usuario.id}">Modificar</button>
+          <button class="btn btn-danger btn-sm eliminarBtn" data-id="${usuario.id}">Eliminar</button>
+        </td>
+      `;
       tablaUsuariosBody.appendChild(fila);
     });
 
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function agregarUsuario() {
-    console.log("Botón presionado");
     const nombre = document.getElementById("nombreUsuario").value.trim();
     const email = document.getElementById("emailUsuario").value.trim();
     const contraseña = document
@@ -52,9 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    usuarios.push({ id: usuarioId++, nombre, email, contraseña, rol });
-    renderUsuarios();
+    const nuevoUsuario = {
+      id: usuarioId++,
+      nombre,
+      email,
+      contraseña,
+      rol,
+    };
 
+    usuarios.push(nuevoUsuario);
+    renderUsuarios();
     document.getElementById("usuarioForm").reset();
   }
 
@@ -67,8 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("nombreUsuarioModificar").value = usuario.nombre;
       document.getElementById("emailUsuarioModificar").value = usuario.email;
       document.getElementById("rolUsuarioModificar").value = usuario.rol;
-      document.getElementById("contraseñaUsuarioModificar").value =
-        usuario.contraseña;
 
       modalModificarUsuario.show();
     }
@@ -99,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function eliminarUsuario(event) {
     const id = parseInt(event.target.dataset.id);
-    usuarios = usuarios.filter((u) => u.id !== id);
+    usuarios = usuarios.filter((usuario) => usuario.id !== id);
     renderUsuarios();
   }
 
