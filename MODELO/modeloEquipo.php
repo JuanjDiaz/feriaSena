@@ -120,7 +120,7 @@ class Equipo{
         $conexion=$this->establecerConexion();
         $consultaEquipos=[];
         try{
-            $consulta=$conexion->prepare("SELECT equipo.id_equipo, equipo.Tipo, usuario.Nombre, equipo_procedimiento.Fecha_ingreso, equipo_procedimiento.Fecha_salida FROM feria_sena.equipo_procedimiento INNER JOIN feria_sena.equipo ON equipo_procedimiento.id_equipo = equipo.id_equipo INNER JOIN feria_sena.usuario ON equipo.id_tecnico = usuario.id_usuario;");
+            $consulta=$conexion->prepare("SELECT equipo.id_equipo, equipo.Tipo, usuario.Nombre, equipo_procedimiento.Fecha_ingreso, equipo_procedimiento.Fecha_salida FROM feria_sena.equipo_procedimiento INNER JOIN feria_sena.equipo ON equipo_procedimiento.id_equipo = equipo.id_equipo INNER JOIN feria_sena.usuario ON equipo.id_tecnico = usuario.id_usuario WHERE usuario.rol = 'tecnico';");
             $consulta->execute();
             $consultaEquipos=$consulta->fetchAll(PDO::FETCH_ASSOC);
             return $consultaEquipos;
