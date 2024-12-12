@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Usuarios</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/styles/usuarios.css" />
+  </head>
+  <body class="body">
+    <header class="custom-header">
+      <div class="logo">
+        <img
+          src="../assets/images/sena.jpg"
+          alt="Logo SENA"
+          class="custom-logo"
+        />
+        <h1 class="m-0">TECNOSERVIFERIA 2024</h1>
+      </div>
+      <nav class="custom-nav">
+        <span class="material-icons">home</span>
+        <span class="material-icons">settings</span>
+        <span class="username">Name</span>
+        <i class="material-icons">person</i>
+      </nav>
+    </header>
+
+    <div class="d-flex">
+      <aside class="sidebar">
+        <ul>
+          <div class="li">
+            <li><a id="informes" href="#">Informes</a></li>
+          </div>
+          <div class="li">
+            <li><a id="asignar" href="#">Asignación</a></li>
+          </div>
+          <div class="li">
+            <li><a id="usuarios" href="#">Usuarios</a></li>
+          </div>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <h2>Gestión de Usuarios</h2>
+        <div class="filters">
+          <form id="usuarioForm" class="row g-3">
+            <div class="col-md-4">
+              <label for="nombreUsuario" class="form-label">Nombre</label>
+              <input
+                type="text"
+                id="nombreUsuario"
+                class="form-control"
+                placeholder="Ingrese nombre"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="emailUsuario" class="form-label">Correo</label>
+              <input
+                type="email"
+                id="emailUsuario"
+                class="form-control"
+                placeholder="Ingrese correo"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="contraseñaUsuario" class="form-label"
+                >Contraseña</label
+              >
+              <input
+                type="password"
+                id="contraseñaUsuario"
+                class="form-control"
+                placeholder="Ingrese contraseña"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="rolUsuario" class="form-label">Rol</label>
+              <select id="rolUsuario" class="form-select">
+                <option selected>Administrador</option>
+                <option>Técnico</option>
+                <option>Usuario</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <button
+                type="button"
+                id="agregarUsuarioBtn"
+                class="btn btn-success mt-3"
+              >
+                Agregar Usuario
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <table class="table mt-4">
+          <thead class="table-success">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Rol</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaUsuariosBody"></tbody>
+        </table>
+      </main>
+    </div>
+
+    <!-- Modal para modificar usuario -->
+    <div
+      class="modal fade"
+      id="modalModificarUsuario"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modificar Usuario</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="modificarUsuarioForm">
+              <input type="hidden" id="usuarioIdModificar" />
+              <div class="mb-3">
+                <label for="nombreUsuarioModificar" class="form-label"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  id="nombreUsuarioModificar"
+                  class="form-control"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="emailUsuarioModificar" class="form-label"
+                  >Correo</label
+                >
+                <input
+                  type="email"
+                  id="emailUsuarioModificar"
+                  class="form-control"
+                  disabled
+                />
+              </div>
+              <div class="mb-3">
+                <label for="rolUsuarioModificar" class="form-label">Rol</label>
+                <select id="rolUsuarioModificar" class="form-select">
+                  <option>Administrador</option>
+                  <option>Técnico</option>
+                  <option>Usuario</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="contraseñaUsuarioModificar" class="form-label"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  id="contraseñaUsuarioModificar"
+                  class="form-control"
+                  disabled
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              id="guardarCambiosUsuarioBtn"
+              class="btn btn-primary"
+            >
+              Guardar Cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/usuarios.js"></script>
+  </body>
+</html>
