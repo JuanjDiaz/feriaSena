@@ -1,29 +1,13 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Simulación de datos filtrados para el informe
-  $tipoEquipo = $_POST['tipoEquipo'] ?? '';
-  $documento = $_POST['documento'] ?? '';
-  $id = $_POST['id'] ?? '';
-  $fechaInicio = $_POST['fechaInicio'] ?? '';
-  $fechaFin = $_POST['fechaFin'] ?? '';
 
-  $datosFiltrados = [
-    [
-      'id' => 123,
-      'equipo' => $tipoEquipo,
-      'propietario' => 'Luis Fossi',
-      'tecnico' => 'Javier Gómez',
-      'fechaRecepcion' => '2024-11-22',
-      'fechaEntrega' => '2024-12-02',
-      'estado' => 'Entregado',
-      'procedimientos' => 'Mantenimiento',
-    ],
-  ];
+session_start();
 
-  header('Content-Type: application/json');
-  echo json_encode($datosFiltrados);
-  exit;
+$equipos=$_SESSION["equipos"]??[];
+
+if (!empty($equipos)){
+  
 }
+
 ?>
 
 <!DOCTYPE html>
