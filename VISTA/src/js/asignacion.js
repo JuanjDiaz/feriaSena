@@ -22,7 +22,7 @@ class Redirigir {
 
 document.addEventListener('DOMContentLoaded', () => {
     const botonesUrls = {
-        'informes': '../complements/informes.html',
+        'informes': '../complements/informes.php',
         'AsignacionTecnico': "../complements/asignacionesTecnico.html",
         'registrarEqipo': '../complements/formulario.php'
     };
